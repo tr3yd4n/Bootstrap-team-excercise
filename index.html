@@ -1,550 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-        "Selectors"
-        Selectors help with targeting elements in the DOM.
-        They are useful both for CSS & JS.
-        Here you'll find a lot of exercises about them.
-
-        IMPORTANT: you can't add classes or IDs to help you out! 
-
-        To test them out, just add a "color", "border" or "background-color" to the rule.
-
-        10 CSS Exercises
-        10 JS Exercises
-    -->
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+    <title>Homework</title>
     <style>
-        /*
-            EX1) Write a selector to target the title of the page
-            EX2) Write a selector to target every child of the navbar
-            EX3) Write a selector to target the "continue reading..." inside the jumbotron
-            EX4) Write a selector to target the first blogpost
-            EX5) Write a selector to target the "even" links in the navbar -----------------------------
-            EX6) Write a selector to target the last blog post
-            EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives )
-            EX8) Write a selector to target the second post author
-            EX9) Write a selector to target the "back to top" link     #### EXTRA Try doing it without targeting the footer element directly
-            EX10) Write a selector to target the footer
-        */
-
-
-        div>h1 {
-            color: red;
+        .first-column {
+            height: 400px;
+            padding: 15%;
+            text-align: center;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border: 2px solid black;
         }
 
-        body>div>div.nav-scroller.py-1.mb-2>nav>a {
-            color: red !important;
+        .second-column {
+            padding-bottom: 2%;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            text-align: left;
         }
 
-        body>div>div.jumbotron.p-4.p-md-5.text-white.rounded.bg-dark>div>p.lead.mb-0>a {
-            color: red !important;
+        .third-column-first-row {
+            border-top-right-radius: 50px;
+            border: 2px solid black;
+            border-bottom: none;
+            border-left: none;
+            background-color: rgb(223, 223, 147);
         }
 
-        body>div>div.jumbotron.p-4.p-md-5.text-white.rounded.bg-dark>div>h1 {}
+        .third-column-second-row {
+            border-right: 2px solid black;
+            background-color: rgb(238, 238, 115);
 
-        body>main>div>div>div:nth-child(2) {
-            color: red;
         }
 
-        body>div>div.nav-scroller.py-1.mb-2>nav>a:nth-child(even) {
-            color: purple !important;
-        }
-
-        body>main>div>div>div:nth-child(4) {
-            color: red;
-        }
-
-        body>main>div>aside>div:nth-child(2)>ol>li {
-            font-size: 100px !important;
-        }
-
-        body>main>div>div>div:nth-child(3)>p.blog-post-meta>a {
-            color: red !important;
-        }
-
-        body>footer>p:nth-child(2)>a {
-            color: red;
-        }
-
-        body>footer {
-            color: red;
+        .third-column-third-row {
+            border-bottom-right-radius: 50px;
+            border-bottom: 2px solid black;
+            border-right: 2px solid black;
+            background-color: yellow;
         }
     </style>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
-    <meta name="generator" content="Jekyll v3.8.5" />
-    <title>Blog Template Â· Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/blog/" />
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container">
-        <header class="blog-header py-3">
-            <div class="row flex-nowrap justify-content-between align-items-center">
-                <div class="col-4 pt-1">
-                    <a class="text-muted" href="#">Subscribe</a>
-                </div>
-                <div class="col-4 text-center">
-                    <a class="blog-header-logo text-dark" href="#">Large</a>
-                </div>
-                <div class="col-4 d-flex justify-content-end align-items-center">
-                    <a class="text-muted" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
-                            viewBox="0 0 24 24" focusable="false">
-                            <title>Search</title>
-                            <circle cx="10.5" cy="10.5" r="7.5" />
-                            <path d="M21 21l-5.2-5.2" />
-                        </svg>
-                    </a>
-                    <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+    <div class="conatiner">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 </div>
             </div>
-        </header>
-
-        <div class="nav-scroller py-1 mb-2">
-            <nav class="nav d-flex justify-content-between">
-                <a class="p-2 text-muted" href="#">World</a>
-                <a class="p-2 text-muted" href="#">U.S.</a>
-                <a class="p-2 text-muted" href="#">Technology</a>
-                <a class="p-2 text-muted" href="#">Design</a>
-                <a class="p-2 text-muted" href="#">Culture</a>
-                <a class="p-2 text-muted" href="#">Business</a>
-                <a class="p-2 text-muted" href="#">Politics</a>
-                <a class="p-2 text-muted" href="#">Opinion</a>
-                <a class="p-2 text-muted" href="#">Science</a>
-                <a class="p-2 text-muted" href="#">Health</a>
-                <a class="p-2 text-muted" href="#">Style</a>
-                <a class="p-2 text-muted" href="#">Travel</a>
-            </nav>
-        </div>
-
-        <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-            <div class="col-md-6 px-0">
-                <h1 class="display-4 font-italic">
-                    Title of a longer featured blog post
-                </h1>
-                <p class="lead my-3">
-                    Multiple lines of text that form the lede, informing new readers
-                    quickly and efficiently about whatâ€™s most interesting in this postâ€™s
-                    contents.
-                </p>
-                <p class="lead mb-0">
-                    <a href="#" class="text-white font-weight-bold">Continue reading...</a>
-                </p>
-            </div>
-        </div>
-
-        <div class="row mb-2">
-            <div class="col-md-6">
-                <div
-                    class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-primary">World</strong>
-                        <h3 class="mb-0">Featured post</h3>
-                        <div class="mb-1 text-muted">Nov 12</div>
-                        <p class="card-text mb-auto">
-                            This is a wider card with supporting text below as a natural
-                            lead-in to additional content.
-                        </p>
-                        <a href="#" class="stretched-link">Continue reading</a>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                            aria-label="Placeholder: Thumbnail">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" />
-                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div
-                    class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success">Design</strong>
-                        <h3 class="mb-0">Post title</h3>
-                        <div class="mb-1 text-muted">Nov 11</div>
-                        <p class="mb-auto">
-                            This is a wider card with supporting text below as a natural
-                            lead-in to additional content.
-                        </p>
-                        <a href="#" class="stretched-link">Continue reading</a>
-                    </div>
-                    <div class="col-auto d-none d-lg-block">
-                        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                            aria-label="Placeholder: Thumbnail">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c" />
-                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </nav>
     </div>
 
-    <main role="main" class="container">
-        <div class="row">
-            <div class="col-md-8 blog-main">
-                <h3 class="pb-4 mb-4 font-italic border-bottom">From the Firehose</h3>
-
-                <div class="blog-post">
-                    <h2 class="blog-post-title">Sample blog post</h2>
-                    <p class="blog-post-meta">
-                        January 1, 2014 by <a href="#">Mark</a>
-                    </p>
-
-                    <p>
-                        This blog post shows a few different types of content that's
-                        supported and styled with Bootstrap. Basic typography, images, and
-                        code are all supported.
-                    </p>
-                    <hr />
-                    <p>
-                        Cum sociis natoque penatibus et magnis
-                        <a href="#">dis parturient montes</a>, nascetur ridiculus mus.
-                        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                        vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
-                        consectetur purus sit amet fermentum.
-                    </p>
-                    <blockquote>
-                        <p>
-                            Curabitur blandit tempus porttitor.
-                            <strong>Nullam quis risus eget urna mollis</strong> ornare vel
-                            eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                    </blockquote>
-                    <p>
-                        Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras
-                        mattis consectetur purus sit amet fermentum. Aenean lacinia
-                        bibendum nulla sed consectetur.
-                    </p>
-                    <h2>Heading</h2>
-                    <p>
-                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                        auctor. Duis mollis, est non commodo luctus, nisi erat porttitor
-                        ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                    </p>
-                    <h3>Sub-heading</h3>
-                    <p>
-                        Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus.
-                    </p>
-                    <pre><code>Example code block</code></pre>
-                    <p>
-                        Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem
-                        malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus
-                        commodo, tortor mauris condimentum nibh, ut fermentum massa.
-                    </p>
-                    <h3>Sub-heading</h3>
-                    <p>
-                        Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus. Aenean lacinia bibendum nulla sed
-                        consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce
-                        dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                        ut fermentum massa justo sit amet risus.
-                    </p>
-                    <ul>
-                        <li>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                            et.
-                        </li>
-                        <li>Donec id elit non mi porta gravida at eget metus.</li>
-                        <li>Nulla vitae elit libero, a pharetra augue.</li>
-                    </ul>
-                    <p>
-                        Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae
-                        elit libero, a pharetra augue.
-                    </p>
-                    <ol>
-                        <li>Vestibulum id ligula porta felis euismod semper.</li>
-                        <li>
-                            Cum sociis natoque penatibus et magnis dis parturient montes,
-                            nascetur ridiculus mus.
-                        </li>
-                        <li>
-                            Maecenas sed diam eget risus varius blandit sit amet non magna.
-                        </li>
-                    </ol>
-                    <p>
-                        Cras mattis consectetur purus sit amet fermentum. Sed posuere
-                        consectetur est at lobortis.
-                    </p>
+    <section>
+        <div class="container mt-5">
+            <h1 class="display-4 text-muted text-center mb-5">Excercise 1</h1>
+            <p class="lead text-center mt-5 mb-5">Recreate this table just using bs4 classes or styling without adding
+                or removing any DOM element</p>
+            <div class="row">
+                <div
+                    class="col-xs-12 col-md-6 bg-success d-flex align-items-center justify-content-center text-light first-column">
+                    First column
+                    Height 400px;
+                    Green-ish background
+                    Text centered
                 </div>
-                <!-- /.blog-post -->
-
-                <div class="blog-post">
-                    <h2 class="blog-post-title">Another blog post</h2>
-                    <p class="blog-post-meta">
-                        December 23, 2013 by <a href="#">Jacob</a>
-                    </p>
-
-                    <p>
-                        Cum sociis natoque penatibus et magnis
-                        <a href="#">dis parturient montes</a>, nascetur ridiculus mus.
-                        Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                        vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
-                        consectetur purus sit amet fermentum.
-                    </p>
-                    <blockquote>
-                        <p>
-                            Curabitur blandit tempus porttitor.
-                            <strong>Nullam quis risus eget urna mollis</strong> ornare vel
-                            eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                        </p>
-                    </blockquote>
-                    <p>
-                        Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras
-                        mattis consectetur purus sit amet fermentum. Aenean lacinia
-                        bibendum nulla sed consectetur.
-                    </p>
-                    <p>
-                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                        auctor. Duis mollis, est non commodo luctus, nisi erat porttitor
-                        ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                    </p>
+                <div
+                    class="col-xs-12 col-md-2 bg-primary d-flex flex-column justify-content-end text-light second-column">
+                    Second column<br>
+                    Text to the bottom<br>
+                    Bold, blue-ish background
                 </div>
-                <!-- /.blog-post -->
-
-                <div class="blog-post">
-                    <h2 class="blog-post-title">New feature</h2>
-                    <p class="blog-post-meta">
-                        December 14, 2013 by <a href="#">Chris</a>
-                    </p>
-
-                    <p>
-                        Cum sociis natoque penatibus et magnis dis parturient montes,
-                        nascetur ridiculus mus. Aenean lacinia bibendum nulla sed
-                        consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce
-                        dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                        ut fermentum massa justo sit amet risus.
-                    </p>
-                    <ul>
-                        <li>
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                            et.
-                        </li>
-                        <li>Donec id elit non mi porta gravida at eget metus.</li>
-                        <li>Nulla vitae elit libero, a pharetra augue.</li>
-                    </ul>
-                    <p>
-                        Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras
-                        mattis consectetur purus sit amet fermentum. Aenean lacinia
-                        bibendum nulla sed consectetur.
-                    </p>
-                    <p>
-                        Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae
-                        elit libero, a pharetra augue.
-                    </p>
+                <div class="col-xs-12 col-md-4">
+                    <div class="row h-100">
+                        <div class="col-sm-12 d-flex align-items-center justify-content-center third-column-first-row">
+                            Third column part 1
+                        </div>
+                        <div class="col-sm-12 d-flex align-items-center justify-content-center third-column-second-row">
+                            Third column part 2
+                        </div>
+                        <div class="col-sm-12 d-flex align-items-center justify-content-center third-column-third-row">
+                            Third column part 3
+                        </div>
+                    </div>
                 </div>
-                <!-- /.blog-post -->
-
-                <nav class="blog-pagination">
-                    <a class="btn btn-outline-primary" href="#">Older</a>
-                    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-                </nav>
             </div>
-            <!-- /.blog-main -->
-
-            <aside class="col-md-4 blog-sidebar">
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="font-italic">About</h4>
-                    <p class="mb-0">
-                        Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras
-                        mattis consectetur purus sit amet fermentum. Aenean lacinia
-                        bibendum nulla sed consectetur.
-                    </p>
-                </div>
-
-                <div class="p-4">
-                    <h4 class="font-italic">Archives</h4>
-                    <ol class="list-unstyled mb-0">
-                        <li><a href="#">March 2014</a></li>
-                        <li><a href="#">February 2014</a></li>
-                        <li><a href="#">January 2014</a></li>
-                        <li><a href="#">December 2013</a></li>
-                        <li><a href="#">November 2013</a></li>
-                        <li><a href="#">October 2013</a></li>
-                        <li><a href="#">September 2013</a></li>
-                        <li><a href="#">August 2013</a></li>
-                        <li><a href="#">July 2013</a></li>
-                        <li><a href="#">June 2013</a></li>
-                        <li><a href="#">May 2013</a></li>
-                        <li><a href="#">April 2013</a></li>
-                    </ol>
-                </div>
-
-                <div class="p-4">
-                    <h4 class="font-italic">Elsewhere</h4>
-                    <ol class="list-unstyled">
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                    </ol>
-                </div>
-            </aside>
-            <!-- /.blog-sidebar -->
         </div>
-        <!-- /.row -->
-    </main>
-    <!-- /.container -->
+    </section>
 
-    <footer class="blog-footer">
-        <p>
-            Blog template built for
-            <a href="https://getbootstrap.com/">Bootstrap</a> by
-            <a href="https://twitter.com/mdo">@mdo</a>.
-        </p>
-        <p>
-            <a href="#">Back to top</a>
-        </p>
-    </footer>
+    <section>
+        <div class="container mt-5">
+            <h1 class="display-4 text-muted text-center mb-5 mt-5">Excercise 2</h1>
+            <p class="lead text-center mt-5 mb-5">Create a pricing table to sell your product, Use a 3 card approach
+                with
+                pricing. This is a classic user/price product, with new features enabled for the proffesional/enterprise
+                version!</p>
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="card text-center">
+                        <h5 class="card-header">Free</h5>
+                        <div class="card-body">
+                            <h1 class="card-title display-6 text-center ">€ 0 <span class="text-muted">/ mo
+                            </h1></span>
+                            <p>
+                                10 users included<br>2 GB of storage<br>Email support<br>Help center access
+                            </p>
+                            <button class="btn btn-outline-primary w-100">Sign up for free</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="card text-center">
+                        <h5 class="card-header">Pro</h5>
+                        <div class="card-body">
+                            <h1 class="card-title display-6 text-center ">€ 15 <span class="text-muted">/ mo
+                            </h1></span>
+                            <p>
+                                20 users included<br>10 GB of storage<br>Priority email support<br>Help center access
+                            </p>
+                            <button class="btn btn-primary w-100">Get started</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="card text-center">
+                        <h5 class="card-header">Enterprise</h5>
+                        <div class="card-body">
+                            <h1 class="card-title display-6 text-center ">€ 29 <span class="text-muted">/ mo
+                            </h1></span>
+                            <p>
+                                30 users included<br>15 GB of storage<br>Phone and email support<br>Help center access
+                            </p>
+                            <button class="btn btn-primary w-100">Contact us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section>
+        <div class="container mt-5">
+            <h1 class="display-4 text-muted text-center mb-5">Excercise 3</h1>
+            <p class="lead text-center mt-5 mb-5">And this could be the "video" part of your website! Here you can add
+                all the video content displayed inside the cards.</p>
+            <div class="row">
 
-    <!-- /*
-          JS Exercises
-          EX11) Write a function to add a new link into the navbar
-          EX12) Write a function to change the color of the main title
-          EX13) Write a function to change the background of the jumbotron
-          EX14) Write a function to remove all the links under "Elsewhere"
-          EX15) Write a function to change the column size for post headings
-          EX16) Write a function to remove the "Search" magnifying glass icon
-          EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
-          EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
-          EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
-          EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
-      */ -->
-    <script>
-
-        // EX11) Write a function to add a new link into the navbar
-        function addLink() {
-            let navBar = document.getElementsByTagName("nav")[0]
-            let newLink = document.createElement("a")
-            newLink.classList.add("p-2")
-            newLink.classList.add("text-muted")
-            newLink.href = "#"
-            newLink.innerText = "New Link"
-            navBar.appendChild(newLink)
-        }
-        addLink()
-
-        // EX12) Write a function to change the color of the main title
-        function changeColor() {
-            let titleColor = document.getElementsByTagName("h1")[0]
-            titleColor.classList.add("bg-light")
-        }
-        changeColor()
-
-        // EX13) Write a function to change the background of the jumbotron
-        function changeBackground() {
-            let backGroundColor = document.getElementsByClassName("jumbotron")[0]
-            backGroundColor.style = "background-color : tomato !important;"
-
-        }
-        changeBackground()
-
-        // EX14) Write a function to remove all the links under "Elsewhere"
-        function removeLinks() {
-            let remove = document.querySelector("body > main > div > aside > div:nth-child(3) > ol")
-            remove.innerHTML = ""
-        }
-        removeLinks()
-
-        // EX15) Write a function to change the column size for post headings
-        function changeColSize() {
-            const postHeadings = document.querySelector("body > div > div.row.mb-2")
-            console.log(postHeadings)
-
-        }
-
-        // EX16) Write a function to remove the "Search" magnifying glass icon
-        function removeMagnify() {
-            let magnify = document.querySelector("body > div > header > div > div.col-4.d-flex.justify-content-end.align-items-center > a.text-muted > svg")
-            magnify.style.visibility = "hidden"
-        }
-        removeMagnify()
-
-
-        // EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
-
-        function trimFifty() {
-            let paragraphs = document.querySelectorAll(".blog-post-meta + p")
-
-            for (i = 0; i < paragraphs.length; i++) {
-                paragraphs[i].innerText = paragraphs[i].innerText.slice(50)
-            }
-        }
-
-        // EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
-        function newPost() {
-            let button = document.querySelector("body > main > div > div > nav > a.btn.btn-outline-secondary")
-            button.classList.remove("disabled")
-            button.removeAttribute("href")
-            button.addEventListener("click", function () {
-                const blog = '<div class="blog-post"><h2 class="blog-post-title">New Blog</h2></div>'
-                const mainBlog = document.querySelector(".blog-main")
-                mainBlog.innerHTML += blog
-            })
-
-        }//only works once
-        newPost()
-
-        // EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
-        function removePost() {
-            const button = document.querySelector("body > main > div > div > nav > a.btn.btn-outline-primary")
-            button.removeAttribute("href")
-            button.addEventListener("click", function () {
-                const blogs = document.querySelectorAll(".blog-post")
-                blogs.remove([blogs.length - 1])
-            })
-
-        }//clicks but doesnt remove
-        removePost()
-
-        // EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
-
-        // function alert() {
-        //     authors = document.querySelector("body > main > div > div > div:nth-child()")
-        //     for (i = 0; i < authors.length; i++) {
-        //         authors.addEventListener("hover",)
-        //     }
-        // }
-
-    </script>
-
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
